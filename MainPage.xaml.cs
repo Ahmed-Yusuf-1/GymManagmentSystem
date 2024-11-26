@@ -8,18 +8,18 @@
         {
             InitializeComponent();
         }
-        public abstract class  Person
+        public abstract class Person
         {
             public int ID { get; set; }
-            public string Name { get; set; }
-            public string ContactInfo { get; set; }
+            public string Name { get; set; } = string.Empty;
+            public string ContactInfo { get; set; } = string.Empty;
 
             public abstract string GetDetails();
         }
 
-        public class  GymMember : Person
+        public class GymMember : Person
         {
-            public string MembershipPlan { get; set; }
+            public string MembershipPlan { get; set; } = string.Empty;
             public DateTime JoinDate { get; set; }
 
             public override string GetDetails()
@@ -40,7 +40,7 @@
 
         public class Trainer : Person
         {
-            public string Specialization { get; set; }
+            public string Specialization { get; set; } = string.Empty;
             public bool Availability { get; set; }
 
             public override string GetDetails()
@@ -50,7 +50,7 @@
 
             public void AssignMember()
             {
-                /// Assign a member to the trainer
+                // Assign a member to the trainer
             }
             public void ScheduleTraining()
             {
@@ -59,14 +59,14 @@
         }
         public class MembershipPlan
         {
-            public string PlanName { get; set; }
+            public string PlanName { get; set; } = string.Empty;
             public int Duration { get; set; } // in months
             public decimal Price { get; set; }
         }
 
         public class GymEquipment
         {
-            public string EquipmentName { get; set; }
+            public string EquipmentName { get; set; } = string.Empty;
             public int Quantity { get; set; }
 
             public void BookEquipment(int memberId) { /* Code to book */ }
@@ -83,17 +83,33 @@
             public void CancelBooking() { /* Code to cancel */ }
         }
 
-        private void OnCounterClicked(object sender, EventArgs e)
+
+        private async void OnMembersClicked(object sender, EventArgs e)
         {
-            count++;
-
-            if (count == 1)
-                CounterBtn.Text = $"Clicked {count} time";
-            else
-                CounterBtn.Text = $"Clicked {count} times";
-
-            SemanticScreenReader.Announce(CounterBtn.Text);
+            try
+            {
+                await Shell.Current.GoToAsync("///MemberPage");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Navigation failed: {ex.Message}");
+            }
         }
-    }
+        private async void OnTrainersClicked(object sender, EventArgs e)
+        {
+            await Shell.Current.GoToAsync("///TrainerPage");
+        }
 
+        private async void OnBookingsClicked(object sender, EventArgs e)
+        {
+            await Shell.Current.GoToAsync("///BookingPage");
+        }
+
+        private async void OnEquipmentClicked(object sender, EventArgs e)
+        {
+            await Shell.Current.GoToAsync("///EquipmentPage");
+        }
+
+        
+    }
 }

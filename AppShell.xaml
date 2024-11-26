@@ -7,8 +7,30 @@
     Shell.FlyoutBehavior="Disabled"
     Title="GymManagmentSystem">
 
+    <FlyoutItem Title="Dashboard" Icon="home.png">
+        <ShellContent Title="Main Page" ContentTemplate="{DataTemplate local:MainPage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Members" Icon="members.png">
+        <ShellContent Title="Manage Members" ContentTemplate="{DataTemplate local:MemberPage}"/>
+    </FlyoutItem>
+    <FlyoutItem Title="Trainers" Icon="trainers.png">
+        <ShellContent Title="Manage Trainers" ContentTemplate="{DataTemplate local:TrainerPage}" />
+    </FlyoutItem>
+    <FlyoutItem Title="Bookings" Icon="bookings.png">
+        <ShellContent Title="Manage Bookings" ContentTemplate="{DataTemplate local:BookingPage}" />
+    </FlyoutItem>
+    <FlyoutItem Title="Equipment" Icon="equipment.png">
+        <ShellContent Title="Manage Equipment" ContentTemplate="{DataTemplate local:EquipmentPage}" />
+    </FlyoutItem>
+
+    <ShellContent Route="MemberPage" ContentTemplate="{DataTemplate local:MemberPage}" />
+    <ShellContent Route="TrainerPage" ContentTemplate="{DataTemplate local:TrainerPage}" />
+    <ShellContent Route="BookingPage" ContentTemplate="{DataTemplate local:BookingPage}" />
+    <ShellContent Route="EquipmentPage" ContentTemplate="{DataTemplate local:EquipmentPage}" />
+
     <ShellContent
-        Title="Home"
+        Title="Home" Icon="member.png"
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
 
