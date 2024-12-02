@@ -27,6 +27,7 @@
     <ShellContent Route="MemberPage" ContentTemplate="{DataTemplate local:MemberPage}" />
     <ShellContent Route="TrainerPage" ContentTemplate="{DataTemplate local:TrainerPage}" />
     <ShellContent Route="BookingPage" ContentTemplate="{DataTemplate local:BookingPage}" />
+    <ShellContent Route="AddBookingPage" ContentTemplate="{DataTemplate local:AddBookingPage}" />
     <ShellContent Route="EquipmentPage" ContentTemplate="{DataTemplate local:EquipmentPage}" />
 
     <ShellContent

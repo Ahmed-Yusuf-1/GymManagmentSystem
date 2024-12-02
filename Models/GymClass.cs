@@ -55,6 +55,33 @@ namespace GymManagmentSystem.Models
             // Schedule a training session
         }
     }
+
+    public class MembershipPlan
+    {
+        public string PlanName { get; set; } = string.Empty;
+        public int Duration { get; set; } // in months
+        public decimal Price { get; set; }
+    }
+
+    public class GymEquipment
+    {
+        public string EquipmentName { get; set; } = string.Empty;
+        public int Quantity { get; set; }
+
+        public void BookEquipment(int memberId) { /* Code to book */ }
+    }
+
+    public class Booking
+    {
+        public int BookingID { get; set; }
+        public string MemberName { get; set; }
+        public string TrainerName { get; set; }
+        public DateTime Date { get; set; }
+
+        public string BookingDetails => $"{Date.ToShortDateString()} with {TrainerName}";
+        public void CreateBooking() { /* Code to create */ }
+        public void CancelBooking() { /* Code to cancel */ }
+    }
     internal class GymClass
     {
     }
