@@ -23,4 +23,8 @@ public partial class AddMemberPage : ContentPage
 
         await Navigation.PopAsync();
     }
+    private async void OnDashboardClicked(object sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync("///MainPage");
+    }
 }

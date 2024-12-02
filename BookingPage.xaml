@@ -2,12 +2,17 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="GymManagmentSystem.BookingPage"
-             Title="BookingPage">
-    <VerticalStackLayout>
+             Title="Booking Page">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Back" Clicked="OnDashboardClicked" />
+    </ContentPage.ToolbarItems>
+
+
+    <VerticalStackLayout Padding="20" Spacing="15">
         <Label Text="Manage Gym Bookings" FontSize="20" HorizontalOptions="Center" />
 
-        
-        <Button Text="Add New Booking" Clicked="OnAddBookingClicked" />
+
+        <Button WidthRequest="200" Text="Add New Booking" Clicked="OnAddBookingClicked" />
 
         
         <ListView x:Name="BookingListView"

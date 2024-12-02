@@ -82,7 +82,7 @@ namespace GymManagmentSystem.Models
         public void CreateBooking() { /* Code to create */ }
         public void CancelBooking() { /* Code to cancel */ }
     }
-    internal class GymClass
+    internal class Classes
     {
     }
 }

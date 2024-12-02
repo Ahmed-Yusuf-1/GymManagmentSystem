@@ -28,4 +28,8 @@ public partial class AddTrainerPage : ContentPage
         // Navigate back to TrainerPage
         await Navigation.PopAsync();
     }
+    private async void OnDashboardClicked(object sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync("///MainPage");
+    }
 }

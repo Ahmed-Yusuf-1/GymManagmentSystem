@@ -2,15 +2,20 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="GymManagmentSystem.AddMemberPage"
-             Title="AddMemberPage">
-    <VerticalStackLayout>
+             Title="Add Member Page">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Back" Clicked="OnDashboardClicked" />
+    </ContentPage.ToolbarItems>
+
+
+    <VerticalStackLayout Padding="20" Spacing="15">
         <Label Text="Add New Member" FontSize="20" VerticalOptions="Center" HorizontalOptions="Center" />
 
         <Entry x:Name="NameEntry" Placeholder="Enter Name" />
         
         <Entry x:Name="PlanEntry" Placeholder="Enter Membership Plan" />
 
-        <Button Text="Add Member" Clicked="OnAddMemberClicked"/>
+        <Button WidthRequest="200" Text="Add Member" Clicked="OnAddMemberClicked"/>
         
     </VerticalStackLayout>
 </ContentPage>

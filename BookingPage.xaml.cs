@@ -28,4 +28,8 @@ public partial class BookingPage : ContentPage
         base.OnAppearing();
         RefreshBookingList();
     }
+    private async void OnDashboardClicked(object sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync("///MainPage");
+    }
 }

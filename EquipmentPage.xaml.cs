@@ -28,4 +28,8 @@ public partial class EquipmentPage : ContentPage
         base.OnAppearing();
         RefreshEquipmentList();
     }
+    private async void OnDashboardClicked(object sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync("///MainPage");
+    }
 }

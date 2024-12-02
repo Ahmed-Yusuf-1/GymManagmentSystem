@@ -39,4 +39,8 @@ public partial class AddEquipmentPage : ContentPage
         // Navigate back to EquipmentPage
         await Navigation.PopAsync();
     }
+    private async void OnDashboardClicked(object sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync("///MainPage");
+    }
 }

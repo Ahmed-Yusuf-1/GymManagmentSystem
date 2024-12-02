@@ -25,4 +25,8 @@ public partial class TrainerPage : ContentPage
         base.OnAppearing();
         RefreshTrainerList();
     }
+    private async void OnDashboardClicked(object sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync("///MainPage");
+    }
 }

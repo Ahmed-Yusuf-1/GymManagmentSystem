@@ -28,4 +28,9 @@ public partial class MemberPage : ContentPage
         base.OnAppearing();
         RefreshMemberList();
     }
+    private async void OnDashboardClicked(object sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync("///MainPage");
+    }
+
 }
