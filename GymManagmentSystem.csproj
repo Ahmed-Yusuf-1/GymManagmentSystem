@@ -63,6 +63,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="AddMemberPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="BookingPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

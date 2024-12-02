@@ -6,10 +6,10 @@
     <VerticalStackLayout Padding="20" Spacing="15">
         <Label Text="Gym Managment System" FontSize="24" HorizontalOptions="Center"/>
 
-        <Button Text="Manage Members" Clicked="OnMembersClicked"/>
-        <Button Text="Manage Trainers" Clicked="OnTrainersClicked"/>
-        <Button Text="Manage Bookings" Clicked="OnBookingsClicked"/>
-        <Button Text="Manage Equipment" Clicked="OnEquipmentClicked"/>
+        <Button Text="Manage Members" Clicked="OnMembersClicked" BackgroundColor="LightSkyBlue"/>
+        <Button Text="Manage Trainers" Clicked="OnTrainersClicked" BackgroundColor="LightSkyBlue"/>
+        <Button Text="Manage Bookings" Clicked="OnBookingsClicked" BackgroundColor="LightSkyBlue"/>
+        <Button Text="Manage Equipment" Clicked="OnEquipmentClicked" BackgroundColor="LightSkyBlue"/>
     </VerticalStackLayout>
 
 </ContentPage>

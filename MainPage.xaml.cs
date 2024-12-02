@@ -17,27 +17,6 @@
             public abstract string GetDetails();
         }
 
-        public class GymMember : Person
-        {
-            public string MembershipPlan { get; set; } = string.Empty;
-            public DateTime JoinDate { get; set; }
-
-            public override string GetDetails()
-            {
-                return $"Member: {Name}, Plan: {MembershipPlan}, Join Date: {JoinDate.ToShortDateString()}";
-            }
-
-            public void Register()
-            {
-                // Register the member
-            }
-
-            public void UpdateInfo()
-            {
-                // Update the member info
-            }
-        }
-
         public class Trainer : Person
         {
             public string Specialization { get; set; } = string.Empty;

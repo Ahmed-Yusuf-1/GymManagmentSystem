@@ -11,6 +11,15 @@
             HorizontalOptions="Center" />
 
         <Button Text="Add Member" Clicked="OnAddMemberClicked" />
+
+        <ListView x:Name="MemberListView" ItemsSource="{Binding Members}" Margin="0,20,0,0">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding Name}" Detail="{Binding MembershipPlan}"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        
         <Button Text="View Members" Clicked="OnViewMembersClicked" />
     </VerticalStackLayout>
 </ContentPage>
