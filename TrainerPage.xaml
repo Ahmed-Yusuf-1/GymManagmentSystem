@@ -4,9 +4,20 @@
              x:Class="GymManagmentSystem.TrainerPage"
              Title="TrainerPage">
     <VerticalStackLayout>
-        <Label 
-            Text="ahhhhhhhhhhhhhhhhhhhh"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+        <Label Text="Manage Gym Trainers" FontSize="20" HorizontalOptions="Center" />
+
+        
+        <Button Text="Add New Trainer" Clicked="OnAddTrainerClicked" />
+
+        
+        <ListView x:Name="TrainerListView"
+                  ItemsSource="{Binding Trainers}"
+                  Margin="0,20,0,0">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding Name}" Detail="{Binding Specialization}" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </VerticalStackLayout>
 </ContentPage>

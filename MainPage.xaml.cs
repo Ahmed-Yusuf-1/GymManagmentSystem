@@ -17,25 +17,6 @@
             public abstract string GetDetails();
         }
 
-        public class Trainer : Person
-        {
-            public string Specialization { get; set; } = string.Empty;
-            public bool Availability { get; set; }
-
-            public override string GetDetails()
-            {
-                return $"Trainer: {Name}, Specialization: {Specialization}, Availability: {Availability}";
-            }
-
-            public void AssignMember()
-            {
-                // Assign a member to the trainer
-            }
-            public void ScheduleTraining()
-            {
-                // Schedule a training session
-            }
-        }
         public class MembershipPlan
         {
             public string PlanName { get; set; } = string.Empty;
