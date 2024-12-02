@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GymManagmentSystem.AddEquipmentPage"
+             Title="AddEquipmentPage">
+    <VerticalStackLayout>
+        <Label Text="Add New Equipment" FontSize="20" HorizontalOptions="Center" />
+
+       
+        <Entry x:Name="EquipmentNameEntry" Placeholder="Enter Equipment Name" />
+
+       
+        <Entry x:Name="EquipmentQuantityEntry" Placeholder="Enter Quantity" Keyboard="Numeric" />
+
+        
+        <Button Text="Add Equipment" Clicked="OnAddEquipmentClicked" />
+    </VerticalStackLayout>
+</ContentPage>
