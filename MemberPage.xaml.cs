@@ -16,7 +16,7 @@ public partial class MemberPage : ContentPage
 
     private async void OnViewMembersClicked(object sender, EventArgs e)
     {
-        await DisplayAlert("View", "Viewed Members", "OK");
+        await DisplayAlert("Confirmation", "'Confirmation Message Here'", "OK");
     }
     public void RefreshMemberList()
     {

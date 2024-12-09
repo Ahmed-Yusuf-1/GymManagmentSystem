@@ -10,33 +10,53 @@
             InitializeComponent();
         }
 
+        private async void OnTrainerTapped(object sender, EventArgs e)
+        {
+            var button = sender as Button;
 
-        private async void OnMembersClicked(object sender, EventArgs e)
-        {
-            try
-            {
-                await Shell.Current.GoToAsync("///MemberPage");
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Navigation failed: {ex.Message}");
-            }
-        }
-        private async void OnTrainersClicked(object sender, EventArgs e)
-        {
-            await Shell.Current.GoToAsync("///TrainerPage");
+            // Animate the button (scale effect)
+            await button.ScaleTo(0.9, 100);
+            await button.ScaleTo(1, 100);
+
+            // Navigate to the appropriate page
+            await Navigation.PushAsync(new TrainerPage());
         }
 
-        private async void OnBookingsClicked(object sender, EventArgs e)
+        private async void OnBookingTapped(object sender, EventArgs e)
         {
-            await Shell.Current.GoToAsync("///BookingPage");
+            var button = sender as Button;
+
+            // Animate the button (scale effect)
+            await button.ScaleTo(0.9, 100);
+            await button.ScaleTo(1, 100);
+
+            // Navigate to the appropriate page
+            await Navigation.PushAsync(new BookingPage());
         }
 
-        private async void OnEquipmentClicked(object sender, EventArgs e)
+        private async void OnEquipmentTapped(object sender, EventArgs e)
         {
-            await Shell.Current.GoToAsync("///EquipmentPage");
+            var button = sender as Button;
+
+            // Animate the button (scale effect)
+            await button.ScaleTo(0.9, 100);
+            await button.ScaleTo(1, 100);
+
+            // Navigate to the appropriate page
+            await Navigation.PushAsync(new EquipmentPage());
+        }
+        private async void OnMembersTapped(object sender, EventArgs e)
+        {
+            var button = sender as Button;
+
+            // Animate the button (scale effect)
+            await button.ScaleTo(0.9, 100);
+            await button.ScaleTo(1, 100);
+
+            // Navigate to the appropriate page
+            await Navigation.PushAsync(new MemberPage());
         }
 
-        
+
     }
 }

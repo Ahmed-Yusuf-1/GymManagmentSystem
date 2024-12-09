@@ -3,6 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="GymManagmentSystem.AddBookingPage"
              Title="Add Booking Page">
+    <ContentPage.Background>
+        <LinearGradientBrush>
+            <GradientStop Color="#131313" Offset="0.0" />
+            <GradientStop Color="#1f1f1f" Offset="1.0" />
+        </LinearGradientBrush>
+    </ContentPage.Background>
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Back" Clicked="OnDashboardClicked" />
     </ContentPage.ToolbarItems>
@@ -20,6 +26,6 @@
         <DatePicker x:Name="BookingDatePicker" />
 
 
-        <Button WidthRequest="200" Text="Create Booking" Clicked="OnAddBookingClicked" />
+        <Button Style="{StaticResource RoundedButtonStyle}" WidthRequest="200" Text="Create Booking" Clicked="OnAddBookingClicked" />
     </VerticalStackLayout>
 </ContentPage>

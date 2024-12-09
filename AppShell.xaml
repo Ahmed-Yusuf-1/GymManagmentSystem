@@ -7,10 +7,16 @@
     Shell.FlyoutBehavior="Disabled"
     Title="GymManagmentSystem">
 
+    <Shell.Resources>
+        <Style TargetType="local:AppShell">
+            <Setter Property="BackgroundColor" Value="#1f1f1f" />
+            <Setter Property="TitleColor" Value="AntiqueWhite" />
+        </Style>
+    </Shell.Resources>
+
     <FlyoutItem Title="Dashboard" Icon="home.png">
         <ShellContent Title="Main Page" ContentTemplate="{DataTemplate local:MainPage}" />
     </FlyoutItem>
-
     <FlyoutItem Title="Members" Icon="members.png">
         <ShellContent Title="Manage Members" ContentTemplate="{DataTemplate local:MemberPage}"/>
     </FlyoutItem>
@@ -32,7 +38,7 @@
     <ShellContent Route="AddEquipmentPage" ContentTemplate="{DataTemplate local:AddEquipmentPage}" />
 
     <ShellContent
-        Title="Home" Icon="member.png"
+        Title="Main Page" Icon="member.png"
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
 
