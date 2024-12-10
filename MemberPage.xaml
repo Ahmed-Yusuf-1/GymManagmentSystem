@@ -26,9 +26,6 @@
         </Style>
     </ContentPage.Resources>
 
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Back" Clicked="OnDashboardClicked" />
-    </ContentPage.ToolbarItems>
 
     <VerticalStackLayout Padding="20" Spacing="15">
         <Label 

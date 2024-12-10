@@ -8,7 +8,7 @@ namespace GymManagmentSystem.Models
 {
     public abstract class Person
     {
-        public int ID { get; set; }
+        public int ID { get; set; }   // Unique identifier
         public string Name { get; set; } = string.Empty;
         public string ContactInfo { get; set; } = string.Empty;
 

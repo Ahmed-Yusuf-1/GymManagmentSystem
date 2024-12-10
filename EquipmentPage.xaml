@@ -25,17 +25,12 @@
         </Style>
     </ContentPage.Resources>
 
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Back" Clicked="OnDashboardClicked" />
-    </ContentPage.ToolbarItems>
 
     <VerticalStackLayout Padding="20" Spacing="15">
         <Label Text="Manage Gym Equipment" FontSize="20" HorizontalOptions="Center" />
 
-
         <Button Style="{StaticResource RoundedButtonStyle}" WidthRequest="200" Text="Add New Equipment" Clicked="OnAddEquipmentClicked" />
 
-        
         <ListView x:Name="EquipmentListView"
                   ItemsSource="{Binding EquipmentList}"
                   Margin="0,20,0,0">

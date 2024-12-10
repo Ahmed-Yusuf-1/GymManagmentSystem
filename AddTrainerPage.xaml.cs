@@ -30,6 +30,6 @@ public partial class AddTrainerPage : ContentPage
     }
     private async void OnDashboardClicked(object sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync("///MainPage");
+        await Navigation.PushAsync(new MainPage());
     }
 }

@@ -9,9 +9,6 @@
             <GradientStop Color="#1f1f1f" Offset="1.0" />
         </LinearGradientBrush>
     </ContentPage.Background>
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Back" Clicked="OnDashboardClicked" />
-    </ContentPage.ToolbarItems>
 
     <VerticalStackLayout Padding="20" Spacing="15">
         <Label Text="Create a New Booking" FontSize="20" HorizontalOptions="Center" />
