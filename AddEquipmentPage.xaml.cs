@@ -1,21 +1,21 @@
-using GymManagmentSystem.Models;   
+using GymManagmentSystem.Models;
+using GymManagmentSystem.Services;
 
 namespace GymManagmentSystem;
 
 public partial class AddEquipmentPage : ContentPage
 {
-    private List<GymEquipment> equipmentList;
 
-    public AddEquipmentPage(List<GymEquipment> equipment)
+    public AddEquipmentPage()
     {
         InitializeComponent();
-        equipmentList = equipment;
     }
 
     private async void OnAddEquipmentClicked(object sender, EventArgs e)
     {
         // Validate input
-        if (string.IsNullOrWhiteSpace(EquipmentNameEntry.Text) || string.IsNullOrWhiteSpace(EquipmentQuantityEntry.Text))
+        if (string.IsNullOrWhiteSpace(EquipmentNameEntry.Text) ||
+            string.IsNullOrWhiteSpace(EquipmentQuantityEntry.Text))
         {
             await DisplayAlert("Error", "Please fill out all fields.", "OK");
             return;
@@ -27,14 +27,16 @@ public partial class AddEquipmentPage : ContentPage
             return;
         }
 
-        // Add the new equipment
+        // Add the new equipment to the database
         var newEquipment = new GymEquipment
         {
             EquipmentName = EquipmentNameEntry.Text,
             Quantity = quantity
         };
 
-        equipmentList.Add(newEquipment);
+
+
+        await DatabaseService.AddEquipmentAsync(newEquipment);
 
         // Navigate back to EquipmentPage
         await Navigation.PopAsync();

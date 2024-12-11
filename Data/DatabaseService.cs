@@ -22,6 +22,9 @@ namespace GymManagmentSystem.Services
             _database = new SQLiteAsyncConnection(dbPath);
             // Create tables if they don't already exist
             await _database.CreateTableAsync<GymMember>();
+            await _database.CreateTableAsync<Trainer>();
+            await _database.CreateTableAsync<GymEquipment>();
+            await _database.CreateTableAsync<Booking>();
 
             // Check if the table is empty
             var existingMembers = await _database.Table<GymMember>().FirstOrDefaultAsync();
@@ -43,7 +46,7 @@ namespace GymManagmentSystem.Services
         };
                 await _database.InsertAllAsync(defaultMembers);
             }
-            await _database.CreateTableAsync<Trainer>();
+            
         }
 
         public static async Task<List<GymMember>> GetMembersAsync()
@@ -79,6 +82,42 @@ namespace GymManagmentSystem.Services
         public static async Task<int> RemoveTrainerAsync(Trainer trainer)
         {
             return await _database.DeleteAsync(trainer);
+        }
+
+        // Equipment Methods
+        public static async Task<List<GymEquipment>> GetEquipmentAsync()
+        {
+            return await _database.Table<GymEquipment>().ToListAsync();
+        }
+
+        public static async Task<int> AddEquipmentAsync(GymEquipment equipment)
+        {
+            return await _database.InsertAsync(equipment);
+        }
+
+        public static async Task<int> UpdateEquipmentAsync(GymEquipment equipment)
+        {
+            return await _database.UpdateAsync(equipment);
+        }
+
+        // Booking Methods
+        public static async Task<List<Booking>> GetBookingsAsync()
+        {
+            return await _database.Table<Booking>().ToListAsync();
+        }
+
+        public static async Task<int> AddBookingAsync(Booking booking)
+        {
+            return await _database.InsertAsync(booking);
+        }
+        public static async Task<int> UpdateBookingAsync(Booking booking)
+        {
+            return await _database.UpdateAsync(booking);
+        }
+
+        public static async Task<int> RemoveBookingAsync(Booking booking)
+        {
+            return await _database.DeleteAsync(booking);
         }
     }
 }

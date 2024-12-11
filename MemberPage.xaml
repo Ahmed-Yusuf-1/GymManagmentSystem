@@ -37,6 +37,10 @@
 
         <Button Style="{StaticResource RoundedButtonStyle}" WidthRequest="200" Text="Add Member" Clicked="OnAddMemberClicked" />
 
+        <Button Style="{StaticResource RoundedButtonStyle}" WidthRequest="200" x:Name="EditMemberButton" Text="Edit" Clicked="OnEditMemberClicked"/>
+
+        <Button Style="{StaticResource RoundedButtonStyle}" WidthRequest="200" Text="Delete List" Clicked="OnClearMembersClicked" />
+
         <ListView x:Name="MemberListView" ItemsSource="{Binding Members}" Margin="0,20,0,0" ItemTapped="OnMemberTapped" SelectionMode="Single">
             <ListView.ItemTemplate>
                 <DataTemplate>
@@ -47,8 +51,6 @@
         
         
 
-        <Button Style="{StaticResource RoundedButtonStyle}" WidthRequest="200" x:Name="EditMemberButton" Text="Edit" Clicked="OnEditMemberClicked"/>
-
-        <Button Style="{StaticResource RoundedButtonStyle}" WidthRequest="200" Text="Delete List" Clicked="OnClearMembersClicked" />
+        
     </VerticalStackLayout>
 </ContentPage>

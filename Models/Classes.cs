@@ -60,7 +60,12 @@ namespace GymManagmentSystem.Models
         public string EquipmentName { get; set; } = string.Empty;
         public int Quantity { get; set; }
 
-        public void BookEquipment(int memberId) { /* Code to book */ }
+        public void BookEquipment(int memberId) 
+        {
+            
+            if (Quantity > 0)
+                Quantity -= 1;
+        }
     }
 
     public class Booking

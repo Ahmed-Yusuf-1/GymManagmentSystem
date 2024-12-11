@@ -30,10 +30,15 @@
         <Label Text="Manage Gym Equipment" FontSize="20" HorizontalOptions="Center" />
 
         <Button Style="{StaticResource RoundedButtonStyle}" WidthRequest="200" Text="Add New Equipment" Clicked="OnAddEquipmentClicked" />
+        <Button Style="{StaticResource RoundedButtonStyle}" WidthRequest="200" x:Name="EditEquipmentButton" Text="Edit Equipment" Clicked="OnEditEquipmentClicked"/>
+        <Button Style="{StaticResource RoundedButtonStyle}" WidthRequest="200" x:Name="RentEquipmentButton" Text="Rent Equipment" Clicked="OnRentEquipmentClicked"/>
+        
 
         <ListView x:Name="EquipmentListView"
                   ItemsSource="{Binding EquipmentList}"
-                  Margin="0,20,0,0">
+                  Margin="0,20,0,0"
+                  ItemTapped="OnEquipmentTapped"
+                  SelectionMode="Single">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <TextCell Text="{Binding EquipmentName}" Detail="{Binding Quantity}" />

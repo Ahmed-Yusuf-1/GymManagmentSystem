@@ -33,10 +33,16 @@
 
         <Button Style="{StaticResource RoundedButtonStyle}" WidthRequest="200" Text="Add New Booking" Clicked="OnAddBookingClicked" />
 
+        <Button Style="{StaticResource RoundedButtonStyle}" WidthRequest="200" x:Name="EditBookingButton" Text="Edit Booking Schedule" Clicked="OnEditBookingClicked"/>
+
+        <Button Style="{StaticResource RoundedButtonStyle}" WidthRequest="200" x:Name="CancelBookingButton" Text="Cancel Booking" Clicked="OnCancelBookingClicked"/>
+
         
         <ListView x:Name="BookingListView"
                   ItemsSource="{Binding Bookings}"
-                  Margin="0,20,0,0">
+                  Margin="0,20,0,0"
+                  ItemTapped="OnBookingTapped"
+                  SelectionMode="Single">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <TextCell Text="{Binding MemberName}" Detail="{Binding BookingDetails}" />
