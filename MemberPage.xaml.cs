@@ -1,36 +1,91 @@
 using GymManagmentSystem.Models;
+using GymManagmentSystem.Data;
+using GymManagmentSystem.Services;  // For DatabaseService
 
 namespace GymManagmentSystem;
 
 public partial class MemberPage : ContentPage
 {
-    private List<GymMember> members = new List<GymMember>();
+    private GymMember _selectedMember;
+
     public MemberPage()
     {
         InitializeComponent();
     }
+
     private async void OnAddMemberClicked(object sender, EventArgs e)
     {
-        await Navigation.PushAsync(new AddMemberPage(members));
+        // Pass no longer necessary since AddMemberPage can directly add to DB
+        await Navigation.PushAsync(new AddMemberPage());
     }
 
-    private async void OnViewMembersClicked(object sender, EventArgs e)
+
+
+
+
+
+
+
+
+
+    private void OnMemberTapped(object sender, ItemTappedEventArgs e)
     {
-        await DisplayAlert("Confirmation", "'Confirmation Message Here'", "OK");
+        if (e.Item is GymMember tappedMember)
+        {
+            _selectedMember = tappedMember;
+        }
     }
-    public void RefreshMemberList()
+
+    private async void OnEditMemberClicked(object sender, EventArgs e)
     {
-        MemberListView.ItemsSource = null; // Clear the current source
-        MemberListView.ItemsSource = members; // Reassign the updated list
+        if (_selectedMember != null)
+        {
+            // Navigate to EditMemberPage, passing the selected member
+            await Navigation.PushAsync(new EditMemberPage(_selectedMember));
+        }
+        else
+        {
+            await DisplayAlert("Error", "Please select a member to edit", "OK");
+        }
     }
+
+
+
+
+
+
+
+
+
+    private async void OnClearMembersClicked(object sender, EventArgs e)
+{
+    bool confirm = await DisplayAlert("Confirmation", "Are you sure you want to clear all members?", "Yes", "No");
+    if (confirm)
+    {
+        // Call the database method to clear all members
+        await DatabaseService.ClearAllMembersAsync();
+
+        // Refresh the list to show that it's now empty
+        RefreshMemberList();
+    }
+}
+
+
+    public async void RefreshMemberList()
+    {
+        var membersFromDb = await DatabaseService.GetMembersAsync();
+        MemberListView.ItemsSource = null;
+        MemberListView.ItemsSource = membersFromDb;
+    }
+
     protected override void OnAppearing()
     {
         base.OnAppearing();
         RefreshMemberList();
     }
+
     private async void OnDashboardClicked(object sender, EventArgs e)
     {
         await Navigation.PushAsync(new MainPage());
     }
-
 }

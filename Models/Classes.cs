@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SQLite;
 
 namespace GymManagmentSystem.Models
 {
@@ -17,22 +18,15 @@ namespace GymManagmentSystem.Models
 
     public class GymMember : Person
     {
+        [PrimaryKey, AutoIncrement]
+        public new int ID { get; set; } 
+
         public string MembershipPlan { get; set; } = string.Empty;
         public DateTime JoinDate { get; set; }
 
         public override string GetDetails()
         {
             return $"Member: {Name}, Plan: {MembershipPlan}, Join Date: {JoinDate.ToShortDateString()}";
-        }
-
-        public void Register()
-        {
-            // Register the member
-        }
-
-        public void UpdateInfo()
-        {
-            // Update the member info
         }
     }
 
@@ -45,19 +39,11 @@ namespace GymManagmentSystem.Models
         {
             return $"Trainer: {Name}, Specialization: {Specialization}, Availability: {Availability}";
         }
-
-        public void AssignMember()
-        {
-            // Assign a member to the trainer
-        }
-        public void ScheduleTraining()
-        {
-            // Schedule a training session
-        }
     }
 
     public class MembershipPlan
     {
+        public static string Text { get; internal set; }
         public string PlanName { get; set; } = string.Empty;
         public int Duration { get; set; } // in months
         public decimal Price { get; set; }
@@ -79,8 +65,6 @@ namespace GymManagmentSystem.Models
         public DateTime Date { get; set; }
 
         public string BookingDetails => $"{Date.ToShortDateString()} with {TrainerName}";
-        public void CreateBooking() { /* Code to create */ }
-        public void CancelBooking() { /* Code to cancel */ }
     }
     internal class Classes
     {

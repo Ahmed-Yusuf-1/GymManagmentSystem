@@ -1,0 +1,37 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GymManagmentSystem.EditMemberPage">
+
+    <ContentPage.Background>
+        <LinearGradientBrush>
+            <GradientStop Color="#131313" Offset="0.0" />
+            <GradientStop Color="#1f1f1f" Offset="1.0" />
+        </LinearGradientBrush>
+    </ContentPage.Background>
+
+
+    <ContentPage.Resources>
+        <Style TargetType="Button" x:Key="RoundedButtonStyle">
+            <Setter Property="BackgroundColor" Value="#17a589" />
+            <Setter Property="TextColor" Value="Black" />
+            <Setter Property="CornerRadius" Value="18" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="Padding" Value="10,5" />
+            <Setter Property="WidthRequest" Value="250" />
+            <Setter Property="HeightRequest" Value="45" />
+            <Setter Property="Shadow">
+                <Shadow Brush="Black" Offset="3,3" Opacity="0.3" Radius="5" />
+            </Setter>
+        </Style>
+    </ContentPage.Resources>
+
+    <VerticalStackLayout Padding="20" Spacing="15">
+        <Label Text="Edit Member Info" FontAttributes="Bold" FontSize="Medium"/>
+
+        <Entry x:Name="NameEntry" Placeholder="Name"/>
+        <Entry x:Name="PlanEntry" Placeholder="Membership Plan"/>
+
+        <Button Style="{StaticResource RoundedButtonStyle}" Text="Save Changes" Clicked="OnSaveChangesClicked"/>
+        <Button Style="{StaticResource RoundedButtonStyle}" Text="Cancel" Clicked="OnCancelClicked"/>
+        </VerticalStackLayout>
+</ContentPage>
