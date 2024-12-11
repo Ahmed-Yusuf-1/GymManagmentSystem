@@ -43,6 +43,7 @@ namespace GymManagmentSystem.Services
         };
                 await _database.InsertAllAsync(defaultMembers);
             }
+            await _database.CreateTableAsync<Trainer>();
         }
 
         public static async Task<List<GymMember>> GetMembersAsync()
@@ -63,6 +64,21 @@ namespace GymManagmentSystem.Services
         public static async Task<int> ClearAllMembersAsync()
         {
             return await _database.DeleteAllAsync<GymMember>();
+        }
+
+        public static async Task<List<Trainer>> GetTrainersAsync()
+        {
+            return await _database.Table<Trainer>().ToListAsync();
+        }
+
+        public static async Task<int> AddTrainerAsync(Trainer trainer)
+        {
+            return await _database.InsertAsync(trainer);
+        }
+
+        public static async Task<int> RemoveTrainerAsync(Trainer trainer)
+        {
+            return await _database.DeleteAsync(trainer);
         }
     }
 }

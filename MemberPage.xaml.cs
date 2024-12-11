@@ -1,5 +1,4 @@
 using GymManagmentSystem.Models;
-using GymManagmentSystem.Data;
 using GymManagmentSystem.Services;  // For DatabaseService
 
 namespace GymManagmentSystem;
@@ -48,13 +47,6 @@ public partial class MemberPage : ContentPage
             await DisplayAlert("Error", "Please select a member to edit", "OK");
         }
     }
-
-
-
-
-
-
-
 
 
     private async void OnClearMembersClicked(object sender, EventArgs e)

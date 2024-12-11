@@ -32,6 +32,8 @@ namespace GymManagmentSystem.Models
 
     public class Trainer : Person
     {
+        [PrimaryKey, AutoIncrement]
+        public new int ID { get; set; }
         public string Specialization { get; set; } = string.Empty;
         public bool Availability { get; set; }
 
@@ -41,16 +43,20 @@ namespace GymManagmentSystem.Models
         }
     }
 
-    public class MembershipPlan
-    {
-        public static string Text { get; internal set; }
-        public string PlanName { get; set; } = string.Empty;
-        public int Duration { get; set; } // in months
-        public decimal Price { get; set; }
-    }
+    //public class MembershipPlan
+  //  {
+    //    [PrimaryKey, AutoIncrement]
+    ////    public new int ID { get; set; }
+    // //   public static string Text { get; internal set; }
+    //    public string PlanName { get; set; } = string.Empty;
+    //    public int Duration { get; set; } // in months
+    //    public decimal Price { get; set; }
+  //  }
 
     public class GymEquipment
     {
+        [PrimaryKey, AutoIncrement]
+        public new int ID { get; set; }
         public string EquipmentName { get; set; } = string.Empty;
         public int Quantity { get; set; }
 
@@ -59,6 +65,8 @@ namespace GymManagmentSystem.Models
 
     public class Booking
     {
+        [PrimaryKey, AutoIncrement]
+        public new int ID { get; set; }
         public int BookingID { get; set; }
         public string MemberName { get; set; }
         public string TrainerName { get; set; }

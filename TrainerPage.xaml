@@ -32,10 +32,13 @@
 
         <Button Style="{StaticResource RoundedButtonStyle}" WidthRequest="200" Text="Add New Trainer" Clicked="OnAddTrainerClicked" />
 
-        
+        <Button Style="{StaticResource RoundedButtonStyle}" WidthRequest="200" x:Name="RemoveTrainerButton" Text="Remove Trainer" Clicked="OnRemoveTrainerClicked" />
+
+
+
         <ListView x:Name="TrainerListView"
                   ItemsSource="{Binding Trainers}"
-                  Margin="0,20,0,0">
+                  Margin="0,20,0,0" ItemTapped="OnTrainerTapped" SelectionMode="Single">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <TextCell Text="{Binding Name}" Detail="{Binding Specialization}" />

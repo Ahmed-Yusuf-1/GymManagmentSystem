@@ -1,23 +1,51 @@
 using GymManagmentSystem.Models;
+using GymManagmentSystem.Services;
 
 namespace GymManagmentSystem;
 
 public partial class TrainerPage : ContentPage
 {
-    private List<Trainer> trainers = new List<Trainer>();
+    private Trainer? _selectedTrainer;
     public TrainerPage()
 	{
 		InitializeComponent();
 	}
     private async void OnAddTrainerClicked(object sender, EventArgs e)
     {
-        await Navigation.PushAsync(new AddTrainerPage(trainers));
+        await Navigation.PushAsync(new AddTrainerPage());
     }
 
-    public void RefreshTrainerList()
+    private void OnTrainerTapped(object sender, ItemTappedEventArgs e)
     {
-        TrainerListView.ItemsSource = null; // Clear the current source
-        TrainerListView.ItemsSource = trainers; // Reassign the updated list
+        if (e.Item is Trainer tappedTrainer)
+        {
+            _selectedTrainer = tappedTrainer;
+        }
+    }
+
+    private async void OnRemoveTrainerClicked(object sender, EventArgs e)
+    {
+        if (_selectedTrainer != null)
+        {
+            bool confirm = await DisplayAlert("Confirmation", "Are you sure you want to remove this trainer?", "Yes", "No");
+            if (confirm)
+            {
+                await DatabaseService.RemoveTrainerAsync(_selectedTrainer);
+                RefreshTrainerList();
+            }
+        }
+        else
+        {
+            await DisplayAlert("Error", "Please select a trainer to remove.", "OK");
+        }
+    }
+
+    public async void RefreshTrainerList()
+    {
+        var trainersFromDb = await DatabaseService.GetTrainersAsync();
+        TrainerListView.ItemsSource = null;
+        TrainerListView.ItemsSource = trainersFromDb;
+
     }
 
     protected override void OnAppearing()

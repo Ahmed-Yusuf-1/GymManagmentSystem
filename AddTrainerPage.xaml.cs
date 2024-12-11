@@ -1,15 +1,13 @@
 using GymManagmentSystem.Models;
+using GymManagmentSystem.Services;
 
 namespace GymManagmentSystem;
 
 public partial class AddTrainerPage : ContentPage
 {
-    private List<Trainer> trainers;
-
-    public AddTrainerPage(List<Trainer> trainerList)
+    public AddTrainerPage()
     {
         InitializeComponent();
-        trainers = trainerList;
     }
 
     private async void OnAddTrainerClicked(object sender, EventArgs e)
@@ -22,14 +20,10 @@ public partial class AddTrainerPage : ContentPage
             Availability = true // Default availability
         };
 
-        // Add to the list
-        trainers.Add(newTrainer);
+        // Add to the database
+        await DatabaseService.AddTrainerAsync(newTrainer);
 
         // Navigate back to TrainerPage
         await Navigation.PopAsync();
-    }
-    private async void OnDashboardClicked(object sender, EventArgs e)
-    {
-        await Navigation.PushAsync(new MainPage());
     }
 }

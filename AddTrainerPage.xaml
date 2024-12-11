@@ -29,10 +29,10 @@
     <VerticalStackLayout Padding="20" Spacing="15">
         <Label Text="Add New Trainer" FontSize="20" HorizontalOptions="Center" />
 
-        
+
         <Entry x:Name="NameEntry" Placeholder="Enter Trainer Name" />
 
-        
+
         <Entry x:Name="SpecializationEntry" Placeholder="Enter Specialization" />
 
 
