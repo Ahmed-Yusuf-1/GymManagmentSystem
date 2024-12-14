@@ -10,8 +10,6 @@ public partial class AddMemberPage : ContentPage
         InitializeComponent();
     }
 
-    // This event handler is called when the user taps the button to add a member.
-    // Ensure that the XAML's button Clicked event is set to OnAddMemberClicked.
     private async void OnAddMemberClicked(object sender, EventArgs e)
     {
         // Create a new GymMember object from the input fields.
@@ -19,7 +17,6 @@ public partial class AddMemberPage : ContentPage
         {
             Name = NameEntry.Text,
             MembershipPlan = PlanEntry.Text,
-            JoinDate = DateTime.Now
         };
 
         // Insert the new member into the database instead of a local list.

@@ -31,8 +31,7 @@ public partial class AddBookingPage : ContentPage
 
         var newBooking = new Booking
         {
-            // BookingID could be optional now since ID is primary key, but we can still set it:
-            BookingID = 0, // or calculate if needed, but ID is the true PK now.
+            BookingID = 0,
             MemberName = MemberPicker.SelectedItem.ToString(),
             TrainerName = TrainerPicker.SelectedItem.ToString(),
             Date = BookingDatePicker.Date

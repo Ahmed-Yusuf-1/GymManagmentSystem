@@ -14,17 +14,8 @@ public partial class MemberPage : ContentPage
 
     private async void OnAddMemberClicked(object sender, EventArgs e)
     {
-        // Pass no longer necessary since AddMemberPage can directly add to DB
         await Navigation.PushAsync(new AddMemberPage());
     }
-
-
-
-
-
-
-
-
 
 
     private void OnMemberTapped(object sender, ItemTappedEventArgs e)
@@ -37,16 +28,25 @@ public partial class MemberPage : ContentPage
 
     private async void OnEditMemberClicked(object sender, EventArgs e)
     {
-        if (_selectedMember != null)
+        try
         {
-            // Navigate to EditMemberPage, passing the selected member
-            await Navigation.PushAsync(new EditMemberPage(_selectedMember));
+            if (_selectedMember != null)
+            {
+                // Navigate to EditMemberPage, passing the selected member
+                await Navigation.PushAsync(new EditMemberPage(_selectedMember));
+            }
+            else
+            {
+                await DisplayAlert("Error", "Please select a member to edit", "OK");
+            }
         }
-        else
+        catch (Exception ex)
         {
-            await DisplayAlert("Error", "Please select a member to edit", "OK");
+            // Display the caught exception message in a friendly alert
+            await DisplayAlert("Unexpected Error", $"An error occurred: {ex.Message}", "OK");
         }
     }
+
 
 
     private async void OnClearMembersClicked(object sender, EventArgs e)

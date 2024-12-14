@@ -43,16 +43,6 @@ namespace GymManagmentSystem.Models
         }
     }
 
-    //public class MembershipPlan
-  //  {
-    //    [PrimaryKey, AutoIncrement]
-    ////    public new int ID { get; set; }
-    // //   public static string Text { get; internal set; }
-    //    public string PlanName { get; set; } = string.Empty;
-    //    public int Duration { get; set; } // in months
-    //    public decimal Price { get; set; }
-  //  }
-
     public class GymEquipment
     {
         [PrimaryKey, AutoIncrement]
